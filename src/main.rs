@@ -15,8 +15,12 @@ async fn main() {
         2 => {
             match arg[1].clone().into_string() {
                 Ok(arg_str) => {
-                    let realurl = format!("https://www.ietf.org/rfc/rfc{}.txt", &arg_str);
-                    let _ = get_rfc(&realurl).await;
+                    if arg_str.len() == 4 && arg_str.chars().all(|c| c.is_digit(10)) {
+                        let realurl = format!("https://www.ietf.org/rfc/rfc{}.txt", &arg_str);
+                        let _ = get_rfc(&realurl).await;
+                    } else {
+                        help()
+                    }          
                 },
                 _ => help()
             }
