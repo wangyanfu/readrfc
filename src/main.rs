@@ -3,9 +3,9 @@ use std::env;
 use std::ffi::OsString;
 
 fn help() {
-    println!("usage:
-readrfc 9293     # on Linux
-readrfc.exe 9293 # on Windows")
+    eprintln!("usage:
+    readrfc 9293     # on Linux
+    readrfc.exe 9293 # on Windows")
 }
 
 #[tokio::main]
